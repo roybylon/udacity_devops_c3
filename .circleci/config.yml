@@ -9,4 +9,4 @@ jobs:
 
 workflow:
   my_workflow:
-  - configure_infrastructure
+    - configure_infrastructure
