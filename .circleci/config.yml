@@ -6,7 +6,11 @@ jobs:
       - image: python:3.7-alpine3.11
     steps:
     - run: checkout
+    - add_ssh_keys:
+        fingerprints: ["56:0d:f9:b4:67:9d:6c:77:9e:8b:4f:d4:8d:5c:d4:cc"]
+    
 
 workflow:
   my_workflow:
+    jobs:
     - configure_infrastructure
