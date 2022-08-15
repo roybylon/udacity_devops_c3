@@ -5,8 +5,8 @@ jobs:
     docker:
       - image: python:3.7-alpine3.11
     steps:
-      - checkout
+    - run: checkout
 
 workflow:
-  myworkflow:
+  my_workflow:
   - configure_infrastructure
