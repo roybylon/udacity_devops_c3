@@ -1,5 +1,6 @@
 version: 2.1
-
+#ansible-playbook -i inventory main.yml
+          
 jobs:
   create_infrastructure: 
       docker:
@@ -28,7 +29,7 @@ jobs:
     - run:
         name: Configure server
         command: |
-          ansible-playbook -i inventory main.yml
+          ansible-playbook main.yml -i inventory --private-key udacity.pem
 
 workflows:
   my_workflow:
