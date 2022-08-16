@@ -5,15 +5,15 @@
 # copy index test page from files/index.js to ~/web/index.js
 # Start the web server using the command pm2 start ~/web/index.js -f
 
-- name: "update apt packages."
-  become: yes
-  apt:
-    update_cache: yes
+# - name: "update apt packages."
+#   become: yes
+#   apt:
+#     update_cache: yes
 
-- name: "upgrade packages"
-  become: yes
-  apt:
-    upgrade: yes
+# - name: "upgrade packages"
+#   become: yes
+#   apt:
+#     upgrade: yes
 
 # - name: remove dependencies that are no longer required
 #   become: yes

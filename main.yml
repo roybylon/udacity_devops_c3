@@ -1,0 +1,26 @@
+#In Order to execute this playbook
+# Assuming the udacity.pem and inventory files are present in the current directory
+#ansible-playbook main.yml -i inventory --private-key udacity.pem
+
+# ---
+##Exercise 1 printing to the console on local host
+# - name: Exercise 
+#   hosts: localhost
+
+#   roles:
+#    - print
+
+---
+ # Exercise 2 for setting up a web server in an EC
+ - name: Exercise for setting up a web server in an EC 
+   # hosts: ubuntu
+   # Use the public IP if the VM is already created
+   hosts: all
+   user: ubuntu
+   become: true
+   become_method: sudo
+   become_user: root
+   roles:
+    - setup
+
+
