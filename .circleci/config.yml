@@ -20,7 +20,7 @@ jobs:
     steps:
     - checkout
     - add_ssh_keys:
-        fingerprints: ["56:0d:f9:b4:67:9d:6c:77:9e:8b:4f:d4:8d:5c:d4:cc"]
+        fingerprints: ["a4:f6:02:0f:31:4d:a7:d4:b2:cc:e2:81:eb:87:26:17"]
     - run:
         name: Install dependencies
         command: |
@@ -28,10 +28,10 @@ jobs:
     - run:
         name: Configure server
         command: |
-          ansible-playbook -i inventory main2.yml
+          ansible-playbook -i inventory main.yml
 
 workflows:
   my_workflow:
     jobs:
-    - create_infrastructure
-    #- configure_infrastructure
+    #- create_infrastructure
+    - configure_infrastructure
