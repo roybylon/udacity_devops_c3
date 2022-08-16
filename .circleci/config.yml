@@ -1,6 +1,6 @@
 version: 2.1
 #ansible-playbook -i inventory main.yml
-          
+#python:3.10.5-alpine3.16
 jobs:
   create_infrastructure: 
       docker:
@@ -21,15 +21,19 @@ jobs:
     steps:
     - checkout
     - add_ssh_keys:
-        fingerprints: ["a2:5f:fb:7e:ab:32:8f:84:d2:c0:f9:46:4d:45:77:06:f0:a4:40:0f"]
+        fingerprints: ["56:0d:f9:b4:67:9d:6c:77:9e:8b:4f:d4:8d:5c:d4:cc"]
     - run:
         name: Install dependencies
         command: |
           apk add --update ansible #install the dependencies
     - run:
+          name: Install dependencies (openssh)
+          command: |
+            apk add --update openssh # Install openssh
+    - run:
         name: Configure server
         command: |
-          ansible-playbook main.yml -i inventory --private-key udacity.pem
+          ansible-playbook -i inventory main.yml
 
 workflows:
   my_workflow:
